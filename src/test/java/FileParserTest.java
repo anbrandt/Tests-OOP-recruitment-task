@@ -2,13 +2,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.*;
-import java.util.logging.FileHandler;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by andrzej on 24.08.17.
@@ -23,9 +17,19 @@ public class FileParserTest {
 		fileParser = new FileParser();
 	}
 
+
+	@Test
+	public void shouldReturnTheSameObject() throws Exception {
+		Person person = new Person("Jon", "male", "1985-03-09");
+
+		String stringFromFile = fileParser.getStringFromFile("src/test/test-scenarios/address-book-null.csv");
+
+//		fileParser.getArrayListFromString();
+	}
+
 	@Test(expected = NoSuchElementException.class)
 	public void shouldReturnMessageIfFileIsEmpty() throws Exception {
-		String requestAsJson = fileParser.readAsString("src/test/test-scenarios/address-book-null.csv");
+		String requestAsJson = fileParser.getStringFromFile("src/test/test-scenarios/address-book-null.csv");
 		Assert.assertNull(requestAsJson);
 
 	}
@@ -33,15 +37,10 @@ public class FileParserTest {
 	@Test(expected = RuntimeException.class)
 	public void shouldReturnErrorWhenFieldIsMissing() throws Exception {
 
-		String requestAsJson = fileParser.readAsString("src/test/test-scenarios/address-book-field-nulls.csv");
+		String requestAsJson = fileParser.getStringFromFile("src/test/test-scenarios/address-book.csv");
 
-		List<Person> personList = mapStringToPersonObject(requestAsJson);
-
-		for (Person person : personList) {
-			if(person.getDateOfBirth().isEmpty())
-
-		}
-
+//		List<Person> personList = fileParser.mapStringsFromFileToObjects(requestAsJson);
+//		personList.forEach(p -> System.out.println(p.toString()));
 
 	}
 
@@ -50,6 +49,7 @@ public class FileParserTest {
 		List<Person> personList = new ArrayList<Person>();
 
 		Person person;
+
 		for (String s : split) {
 			person = new Person();
 			String[] split1 = s.split(", ");

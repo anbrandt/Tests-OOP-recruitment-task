@@ -13,7 +13,6 @@ public class PersonService {
 	private final String FEMALE = "female";
 	private final String MALE = "male";
 
-	private List<Person> listOfPeople = new ArrayList<>();
 
 	public List<Person> getAllFemales(List<Person> allPerson) {
 		List<Person> allFemales = new ArrayList<>();
@@ -60,7 +59,7 @@ public class PersonService {
 			}
 		}
 
-
+		//Math.abs
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate parseJon = LocalDate.parse(jon.getDateOfBirth(), formatter);
 		LocalDate parsePaul = LocalDate.parse(paul.getDateOfBirth(), formatter);

@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -9,11 +8,14 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 
 	FileParser file = new FileParser();
-		List<Person> stringFromFile = file.getStringFromFile();
+		List<Person> stringFromFile = file.getArrayListFromString("/home/andrzej/dev/recruitmenttest2/src/main/resources/address-book.csv");
 		stringFromFile.forEach(per -> System.out.println(per.toString()));
+
+
 
 		PersonService personService = new PersonService();
 
+		List<Person> allFemales = personService.getAllFemales(stringFromFile);
 		List<Person> personList = personService.sortByAge(stringFromFile);
 		personList.forEach(p -> System.out.println(p.getDateOfBirth()));
 
