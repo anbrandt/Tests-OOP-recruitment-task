@@ -10,8 +10,6 @@ import java.util.Scanner;
  */
 public class FileParser {
 
-	//TODO przekazać ścieżke do pliku w parametrze metody
-
 	public List<Person> getArrayListFromString(String path) throws Exception {
 
 		List<Person> personList = new ArrayList<>();
@@ -43,16 +41,6 @@ public class FileParser {
 
 		return personList;
 
-	}
-
-	public String getStringFromFile(String path) throws Exception {
-
-		String next = new Scanner(new File(path)).useDelimiter("\\Z").next();
-
-		if (next.isEmpty()) {
-			throw new NoSuchElementException("File is empty!");
-		} else
-			return next;
 	}
 
 }

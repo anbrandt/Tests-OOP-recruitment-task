@@ -8,22 +8,18 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 
 	FileParser file = new FileParser();
-		List<Person> stringFromFile = file.getArrayListFromString("/home/andrzej/dev/recruitmenttest2/src/main/resources/address-book.csv");
-		stringFromFile.forEach(per -> System.out.println(per.toString()));
-
-
-
 		PersonService personService = new PersonService();
+		List<Person> stringFromFile = file.getArrayListFromString("/home/andrzej/dev/recruitmenttest2/src/main/resources/address-book.csv");
 
-		List<Person> allFemales = personService.getAllFemales(stringFromFile);
-		List<Person> personList = personService.sortByAge(stringFromFile);
-		personList.forEach(p -> System.out.println(p.getDateOfBirth()));
+		System.out.println("How many females are in the file?");
+		System.out.println("Answer is " + personService.getAllFemales(stringFromFile).size());
 
-		Person oldestPerson = personService.getOldestPerson(stringFromFile);
-		System.out.println(oldestPerson.toString());
+		System.out.println("Who is the oldest person in the file?");
+		System.out.println("Answer is " + personService.getOldestPerson(stringFromFile).toString());
 
-		long differenceInDaysOfAgeBetweenJonAndPaul = personService.getDifferenceInDaysOfAgeBetweenJonAndPaul(stringFromFile);
-		System.out.println(differenceInDaysOfAgeBetweenJonAndPaul);
+		System.out.println("What is the age difference in days between Jon and Paul?");
+		System.out.println("Answer is " + personService.getDifferenceInDaysOfAgeBetweenJonAndPaul(stringFromFile) + " days");
+		
 
 	}
 }

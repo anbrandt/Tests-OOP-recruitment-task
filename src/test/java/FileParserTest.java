@@ -22,22 +22,22 @@ public class FileParserTest {
 	public void shouldReturnTheSameObject() throws Exception {
 		Person person = new Person("Jon", "male", "1985-03-09");
 
-		String stringFromFile = fileParser.getStringFromFile("src/test/test-scenarios/address-book-null.csv");
+//		String stringFromFile = fileParser.getStringFromFile("src/test/test-scenarios/address-book-null.csv");
 
 //		fileParser.getArrayListFromString();
 	}
 
 	@Test(expected = NoSuchElementException.class)
 	public void shouldReturnMessageIfFileIsEmpty() throws Exception {
-		String requestAsJson = fileParser.getStringFromFile("src/test/test-scenarios/address-book-null.csv");
-		Assert.assertNull(requestAsJson);
+//		String requestAsJson = fileParser.getStringFromFile("src/test/test-scenarios/address-book-null.csv");
+//		Assert.assertNull(requestAsJson);
 
 	}
 
 	@Test(expected = RuntimeException.class)
 	public void shouldReturnErrorWhenFieldIsMissing() throws Exception {
 
-		String requestAsJson = fileParser.getStringFromFile("src/test/test-scenarios/address-book.csv");
+//		String requestAsJson = fileParser.getStringFromFile("src/test/test-scenarios/address-book.csv");
 
 //		List<Person> personList = fileParser.mapStringsFromFileToObjects(requestAsJson);
 //		personList.forEach(p -> System.out.println(p.toString()));
